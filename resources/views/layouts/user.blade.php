@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <title>SIPMA</title>
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('images/logoWeb.png') }}" type="image/png">
 
@@ -26,23 +25,40 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
-        @include('layouts.navigation')
+    <div class="min-h-screen bg-gray-100 flex">
+        <!-- Sidebar -->
+        <div class="w-80 bg-white text-[#717171] sticky top-0 h-screen border-r-2 border-[#717171] sm:block hidden">
+            @include('layouts.partials.sidebar')
+        </div>
 
-        <!-- Page Heading -->
-        @isset($header)
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
+        <!-- Main Content Area -->
+        <div class="flex-1">
+            <!-- Navbar -->
+            @include('layouts.partials.navbar')
+
+
+
+            <!-- Page Content -->
+
+            {{-- {{ $slot }} --}}
+
+
+            <!-- Konten Halaman -->
+            <main>
+                <div class="container mt-4">
+                    @yield('content')
                 </div>
-            </header>
-        @endisset
+            </main>
 
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
+            @include('layouts.partials.footer')
+        </div>
     </div>
+
+    <!-- Skrip Khusus Halaman -->
+    @yield('scripts')
+
+    <!-- Bootstrap JS (untuk navbar responsive dan komponen lainnya) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

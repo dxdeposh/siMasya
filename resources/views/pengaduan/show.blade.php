@@ -1,4 +1,4 @@
-@extends('pengaduan.layout')
+@extends('layouts.user')
 
 @section('content')
     <div class="container">
@@ -34,7 +34,7 @@
 
                 <div class="mt-3">
                     <!-- Tombol Edit dan Hapus -->
-                    <a href="{{ route('pengaduan.edit', $pengaduan) }}" class="btn btn-warning btn-sm"><i
+                    {{-- <a href="{{ route('pengaduan.edit', $pengaduan) }}" class="btn btn-warning btn-sm"><i
                             class="bi bi-pencil-square"></i> Edit</a>
 
                     <form action="{{ route('pengaduan.destroy', $pengaduan) }}" method="POST" style="display:inline;"
@@ -42,7 +42,7 @@
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Hapus</button>
-                    </form>
+                    </form> --}}
 
                     <!-- Tombol Kembali -->
                     <a href="{{ route('pengaduan.index') }}" class="btn btn-secondary btn-sm"><i

@@ -32,5 +32,15 @@ Route::middleware('auth')->group(function () {
     Route::post('/testimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
 });
 
+Route::prefix('admin')->middleware('auth:admin')->group(function () {
+    Route::get('pengaduan', function () {
+        return view('admin.pengaduan.index');
+    })->name('admin.pengaduan.index');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/tentang-kami', [TentangKamiController::class, 'index'])->name('tentang_kami');
+});
+
 require __DIR__ . '/auth.php';
 require __DIR__ . '/admin-auth.php';
