@@ -36,10 +36,14 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::get('pengaduan', function () {
         return view('admin.pengaduan.index');
     })->name('admin.pengaduan.index');
-    
+
     Route::get('tentang-kami', function () {
         return view('admin.tentang_kami');
     })->name('admin.tentang_kami');
+
+    Route::get('profile', function () {
+        return view('admin.profile.edit');
+    })->name('admin.profile.edit');
 });
 
 require __DIR__ . '/auth.php';
