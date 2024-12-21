@@ -36,10 +36,10 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
     Route::get('pengaduan', function () {
         return view('admin.pengaduan.index');
     })->name('admin.pengaduan.index');
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/tentang-kami', [TentangKamiController::class, 'index'])->name('tentang_kami');
+    
+    Route::get('tentang-kami', function () {
+        return view('admin.tentang_kami');
+    })->name('admin.tentang_kami');
 });
 
 require __DIR__ . '/auth.php';

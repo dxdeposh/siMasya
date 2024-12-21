@@ -39,16 +39,16 @@
             </a>
 
             <!-- Profile -->
-            <a href="{{ route('profile.edit') }}"
+            <a href="{{ route('admin.profile.edit') }}"
                 class="flex items-center p-3 rounded-lg transition-all duration-300 ease-in-out
-                {{ request()->routeIs('profile') ? 'bg-[#14a7a0] text-white shadow-lg' : 'hover:bg-[#14a7a0] hover:text-white hover:shadow-md' }}
+                {{ request()->routeIs('admin.profile') ? 'bg-[#14a7a0] text-white shadow-lg' : 'hover:bg-[#14a7a0] hover:text-white hover:shadow-md' }}
                 hover:scale-105">
                 <i class="bi bi-person-circle w-6 h-6 mr-3"></i>
                 <span>Profile</span>
             </a>
 
             <!-- Logout -->
-            <a href="{{ route('logout') }}"
+            <a href="{{ route('admin.logout') }}"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                 class="flex items-center p-3 rounded-lg transition-all duration-300 ease-in-out hover:bg-[#14a7a0] w-full text-start hover:scale-105">
                 <i class="bi bi-box-arrow-right w-6 h-6 mr-3"></i>
@@ -56,7 +56,7 @@
             </a>
 
             <!-- Form Logout -->
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="hidden">
                 @csrf
             </form>
 
@@ -64,7 +64,7 @@
             <hr class="my-4 border-t border-[#717171]">
 
             <!-- Tentang Kami -->
-            <a href="{{ route('tentang_kami') }}"
+            <a href="{{ route('admin.tentang_kami') }}"
                 class="flex items-center p-3 rounded-lg border border-[#14a7a0] text-[#717171] transition-all duration-300 ease-in-out hover:bg-[#14a7a0] hover:text-white hover:shadow-md hover:scale-105">
                 <i class="bi bi-info-circle w-6 h-6 mr-3"></i>
                 <span>Tentang Kami</span>
