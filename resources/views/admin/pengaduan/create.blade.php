@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.admin')
 
 @section('title', 'Tambahkan Pengaduan')
 
@@ -12,7 +12,7 @@
                         <h5><i class="bi bi-file-earmark-plus"></i> Tambah Pengaduan</h5>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('pengaduan.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.pengaduan.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <!-- Nama Pengadu -->

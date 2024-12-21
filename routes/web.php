@@ -6,6 +6,9 @@ use App\Http\Controllers\TentangKamiController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\TestimoniController;
 
+require __DIR__ . '/admin-auth.php';
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -33,9 +36,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::prefix('admin')->middleware('auth:admin')->group(function () {
-    Route::get('pengaduan', function () {
-        return view('admin.pengaduan.index');
-    })->name('admin.pengaduan.index');
+    
 
     Route::get('tentang-kami', function () {
         return view('admin.tentang_kami');
@@ -47,4 +48,3 @@ Route::prefix('admin')->middleware('auth:admin')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
-require __DIR__ . '/admin-auth.php';

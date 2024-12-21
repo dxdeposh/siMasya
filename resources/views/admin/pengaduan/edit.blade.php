@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
@@ -10,7 +10,7 @@
                         <h5><i class="bi bi-pencil-square"></i> Edit Pengaduan</h5>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('pengaduan.update', $pengaduan) }}" method="POST"
+                        <form action="{{ route('admin.pengaduan.update', $pengaduan) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')

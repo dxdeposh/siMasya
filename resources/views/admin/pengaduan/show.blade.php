@@ -1,6 +1,4 @@
-@extends('layouts.user')
-
-@section('title', 'Detail Pengaduan')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
@@ -9,7 +7,7 @@
         <!-- Breadcrumb Navigation -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('pengaduan.index') }}">Daftar Pengaduan</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.pengaduan.index') }}">Daftar Pengaduan</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Detail Pengaduan</li>
             </ol>
         </nav>
@@ -36,18 +34,18 @@
 
                 <div class="mt-3">
                     <!-- Tombol Edit dan Hapus -->
-                    {{-- <a href="{{ route('pengaduan.edit', $pengaduan) }}" class="btn btn-warning btn-sm"><i
+                    <a href="{{ route('admin.pengaduan.edit', $pengaduan) }}" class="btn btn-warning btn-sm"><i
                             class="bi bi-pencil-square"></i> Edit</a>
 
-                    <form action="{{ route('pengaduan.destroy', $pengaduan) }}" method="POST" style="display:inline;"
+                    <form action="{{ route('admin.pengaduan.destroy', $pengaduan) }}" method="POST" style="display:inline;"
                         onsubmit="return confirm('Apakah Anda yakin ingin menghapus pengaduan ini?')">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Hapus</button>
-                    </form> --}}
+                    </form>
 
                     <!-- Tombol Kembali -->
-                    <a href="{{ route('pengaduan.index') }}" class="btn btn-secondary btn-sm"><i
+                    <a href="{{ route('admin.pengaduan.index') }}" class="btn btn-secondary btn-sm"><i
                             class="bi bi-arrow-left-circle"></i> Kembali ke Daftar Pengaduan</a>
                 </div>
             </div>

@@ -39,13 +39,13 @@
             </a>
 
             <!-- Profile -->
-            <a href="{{ route('admin.profile.edit') }}"
+            {{-- <a href="{{ route('admin.profile.edit') }}"
                 class="flex items-center p-3 rounded-lg transition-all duration-300 ease-in-out
                 {{ request()->routeIs('admin.profile.edit') ? 'bg-[#14a7a0] text-white shadow-lg' : 'hover:bg-[#14a7a0] hover:text-white hover:shadow-md' }}
                 hover:scale-105">
                 <i class="bi bi-person-circle w-6 h-6 mr-3"></i>
                 <span>Profile</span>
-            </a>
+            </a> --}}
 
             <!-- Logout -->
             <a href="{{ route('admin.logout') }}"

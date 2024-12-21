@@ -1,5 +1,7 @@
 @extends('layouts.user')
 
+@section('title', 'Pengaduan')
+
 @section('content')
     <div class="container">
         <h2 class="mb-4">Daftar Pengaduan Masyarakat</h2>

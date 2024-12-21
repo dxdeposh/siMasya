@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>SIPMA</title>
+    <title>@yield('title')</title>
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('images/logoWeb.png') }}" type="image/png">
 
