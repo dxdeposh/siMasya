@@ -1,116 +1,198 @@
-<!-- resources/views/welcome.blade.php -->
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Page</title>
-
-    <!-- Link to Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
-
-    <!-- Link to FontAwesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-    <!-- AOS Animation Library -->
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <style>
-        /* Background effect with parallax */
-        .bg-welcome {
-            background-image: url('{{ asset('images/bgwel.jpg') }}');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            filter: brightness(60%);
-        }
-
-        /* Centered content */
-        .content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            color: white;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Full-screen overlay */
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-
-        .btn {
-            transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.3s ease;
-        }
-
-        .btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Custom font sizes and animation */
-        .headline {
-            font-size: 4rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
-
-        .sub-headline {
-            font-size: 1.25rem;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-
-<body class="bg-welcome">
-
-    <!-- Overlay for darkening the background -->
-    <div class="overlay"></div>
-
-    <!-- Centered content -->
-    <div class="content" data-aos="fade-up">
-        <div>
-            <!-- Main Headline -->
-            <h1 class="headline" data-aos="fade-in" data-aos-duration="1500">
-                Selamat datang di SIPMA 👋🏼
-            </h1>
-
-            <!-- Sub-headline -->
-            <p class="sub-headline text-xl mb-6" data-aos="fade-in" data-aos-duration="2000">
-                Laporkan Masalah, Wujudkan Solusi.
-            </p>
-
-            <!-- Login Button -->
-            <a href="{{ route('login') }}"
-                class="btn bg-blue-500 text-white px-8 py-4 rounded-full shadow-xl inline-flex items-center mb-4 transform hover:bg-blue-400 hover:text-white hover:bg-opacity-100"
-                data-aos="zoom-in" data-aos-duration="1200">
-                <i class="fas fa-sign-in-alt mr-3"></i> Login
-            </a>
-
-            <!-- Register Button -->
-            <a href="{{ route('register') }}"
-                class="btn bg-green-500 text-white px-8 py-4 rounded-full shadow-xl inline-flex items-center transform hover:bg-green-400 hover:text-white hover:bg-opacity-100"
-                data-aos="zoom-in" data-aos-duration="1500">
-                <i class="fas fa-user-plus mr-3"></i> Register
-            </a>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIMASYA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,900;1,100;1,400;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ asset('welcome/reset.css')}}" />
+    <link rel="stylesheet" href="{{ asset('welcome/style.css')}}" />
+    <link rel="icon" href="{{ asset('images/logoWeb.png') }}">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav-left">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
         </div>
+        <div class="nav-right">
+          <a href="{{ route('login')}}" class="btn login">Login</a>
+          <a href="{{ route('register')}}" class="btn register">Register</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="slider">
+      <div class="list">
+        <!-- Item 1 -->
+        <div class="item">
+          <img src="{{ asset('welcome/img/1.jpg')}}" alt="Image 1" />
+          <div class="detail">
+            <div class="tittle">Bukit Serelo</div>
+            <div class="name">Kabupaten lahat</div>
+            <figure>
+              <!-- <img src="img/avatar/1.jpg" alt="Avatar 1" /> -->
+              <figcaption>Sumatera Selatan</figcaption>
+            </figure>
+            <div class="desc">
+              Bukit Serelo adalah salah satu ikon Kabupaten Lahat, Sumatera
+              Selatan, yang dikenal sebagai Bukit Jempol atau Bukit Telunjuk.
+              Bukit ini terletak di Desa Perangai, Kecamatan Merapi Selatan,
+              Kabupaten Lahat, dengan ketinggian sekitar 900 meter di atas
+              permukaan laut.
+            </div>
+            <a href="#" class="more">More detail &raquo;</a>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="item">
+          <img src="{{ asset('welcome/img/2.png')}}" alt="Image 2" />
+          <div class="detail">
+            <div class="tittle">Jembatan Ampera</div>
+            <div class="name">Kota Palembang</div>
+            <figure>
+              <!-- <img src="img/avatar/2.jpg" alt="Avatar 2" /> -->
+              <figcaption>Sumatera Selatan</figcaption>
+            </figure>
+            <div class="desc">
+              Jembatan Ampera merupakan simbol perjuangan dan persatuan rakyat
+              Palembang. Jembatan ini juga menjadi lambang sejarah dan
+              kebanggaan bagi masyarakat Palembang.
+            </div>
+            <a href="#" class="more">More detail &raquo;</a>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="item">
+          <img src="{{ asset('welcome/img/3.png')}}" alt="Image 3" />
+          <div class="detail">
+            <!-- <div class="tittle">-</div>
+            <div class="name">-</div>
+            <figure>
+              <img src="img/avatar/3.jpg" alt="Avatar 3" />
+              <figcaption>-</figcaption>
+            </figure>
+            <div class="desc">
+              -
+            </div> -->
+            <!-- <a href="#" class="more">More detail &raquo;</a> -->
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="item">
+          <img src="{{ asset('welcome/img/4.png')}}" alt="Image 4" />
+          <div class="detail">
+            <!-- <div class="tittle">-</div>
+            <div class="name">-</div>
+            <figure>
+              <img src="img/avatar/4.jpg" alt="Avatar 4" />
+              <figcaption>-</figcaption>
+            </figure>
+            <div class="desc">
+              -
+            </div> -->
+            <!-- <a href="#" class="more">More detail &raquo;</a> -->
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="item">
+          <img src="{{ asset('welcome/img/5.png')}}" alt="Image 5" />
+          <div class="detail">
+            <!-- <div class="tittle">-</div>
+            <div class="name">-</div>
+            <figure>
+              <img src="img/avatar/5.jpg" alt="Avatar 5" />
+              <figcaption>-</figcaption>
+            </figure>
+            <div class="desc">
+              -
+            </div> -->
+            <!-- <a href="#" class="more">More detail &raquo;</a> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="thumbnail">
+        <!-- Thumbnail 1 -->
+        <div class="item">
+          <img src="{{ asset('welcome/img/thumb1.png')}}" alt="Thumbnail 1" />
+          <div class="detail">
+            <div class="name">Bukit Serelo</div>
+            <blockquote>
+              Kabupaten Lahat
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Thumbnail 2 -->
+        <div class="item">
+          <img src="{{ asset('welcome/img/thumb2.png')}}" alt="Thumbnail 2" />
+          <div class="detail">
+            <div class="name">Jembatan Ampera</div>
+            <blockquote>
+              Kota Palembang
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Thumbnail 3 -->
+        <div class="item">
+          <img src="{{ asset('welcome/img/thumb3.png')}}" alt="Thumbnail 3" />
+          <div class="detail">
+            <!-- <div class="name">-</div>
+            <blockquote>-</blockquote> -->
+          </div>
+        </div>
+
+        <!-- Thumbnail 4 -->
+        <div class="item">
+          <img src="{{ asset('welcome/img/thumb4.png')}}" alt="Thumbnail 4" />
+          <div class="detail">
+            <!-- <div class="name">-</div>
+            <blockquote>-</blockquote> -->
+          </div>
+        </div>
+
+        <!-- Thumbnail 5 -->
+        <div class="item">
+          <img src="{{ asset('welcome/img/thumb5.png')}}" alt="Thumbnail 5" />
+          <div class="detail">
+            <!-- <div class="name">-</div>
+            <blockquote>
+              -
+            </blockquote> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Optional: Pagination Dots -->
+      <div class="pagination">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+      <div class="arrows">
+        <button id="prev" aria-label="Previous Slide">&lt;</button>
+        <button id="next" aria-label="Next Slide">&gt;</button>
+      </div>
+
+      <div class="loading-bar"></div>
     </div>
 
-    <!-- AOS Animation Script -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-</body>
-
+    <script src="{{ asset('welcome/script.js')}}"></script>
+  </body>
 </html>
