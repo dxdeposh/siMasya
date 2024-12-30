@@ -59,7 +59,7 @@
                                     class="bi bi-eye"></i> Lihat
                                 Selengkapnya</a>
 
-                            {{-- <a href="{{ route('pengaduan.edit', $pengaduan) }}" class="btn btn-warning btn-sm"><i
+                            <a href="{{ route('pengaduan.edit', $pengaduan) }}" class="btn btn-warning btn-sm"><i
                                     class="bi bi-pencil-square"></i> Edit</a>
 
                             <!-- Tombol untuk update status -->
@@ -77,7 +77,7 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i>
                                     Hapus</button>
-                            </form> --}}
+                            </form>
                         </div>
                     </div>
                 </div>
